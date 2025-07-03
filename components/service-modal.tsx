@@ -1,8 +1,6 @@
 "use client"
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Phone, Mail } from "lucide-react"
 import Image from "next/image"
 
 interface ServiceModalProps {
@@ -23,7 +21,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="max-w-4xl w-[96vw] sm:w-[90vw] max-h-[95vh] overflow-hidden flex flex-col p-0 gap-0 rounded-lg sm:rounded-xl"
+        className="max-w-3xl w-[92vw] sm:w-[80vw] max-h-[80vh] overflow-hidden flex flex-col p-0 gap-0 rounded-lg sm:rounded-xl"
         style={{
           position: 'fixed',
           left: '50%',
@@ -60,33 +58,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
           </div>
         </div>
 
-        <div className="flex-shrink-0 p-4 sm:p-6 pt-0 border-t bg-gray-50">
-          <div className="text-center mb-4">
-            <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Intresserad av denna tjänst?</h4>
-            <p className="text-gray-600 text-xs sm:text-sm">Kontakta oss för en kostnadsfri konsultation och skräddarsydd offert.</p>
-          </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 flex-1 h-12 font-medium"
-              onClick={() => (window.location.href = "tel:0760184964")}
-            >
-              <Phone className="h-4 w-4 mr-2" />
-              Ring för offert
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1 h-12 font-medium border-gray-300 hover:bg-gray-100"
-              onClick={() =>
-                (window.location.href =
-                  "mailto:roger@malmlofel.se?subject=" + encodeURIComponent("Förfrågan om " + service.title))
-              }
-            >
-              <Mail className="h-4 w-4 mr-2" />
-              Skicka e-post
-            </Button>
-          </div>
-        </div>
       </DialogContent>
     </Dialog>
   )
